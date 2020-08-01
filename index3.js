@@ -1487,7 +1487,7 @@ map.on('load', function(){
 
     map.on('moveend', function() {
         //Get features after 'moveend'
-        console.log('Current Zoom: ', map.getZoom());
+        //console.log('Current Zoom: ', map.getZoom());
 
         features = [];
         features_routes = [];
@@ -2015,8 +2015,8 @@ map.on('load', function(){
                 //for issued route checking
                 let routesC = e.features[0].properties.routes.replace(/"|\[|\]/g,'');
                 routesC = routesC.replace(/,/g,', ');
-                console.log(routesC);
-                console.log('features: ',e.features[0]);
+                //console.log(routesC);
+                //console.log('features: ',e.features[0]);
                 //
 
 
