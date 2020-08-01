@@ -1,71 +1,68 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150351954-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('set', {'user_id': 'USER_ID'}); // 使用已登入的 user_id 設定 User ID。
-      //ga('set', 'userId', 'USER_ID'); // 使用已登入的 user_id 設定 User ID。
-      gtag('config', 'UA-150351954-1');
-    </script>
-    <meta name="google-site-verification" content="tuoxq-w1wlZAiAEFOozS1tn4iw1Uoy-L_GOEyKV5RqM" />
-    <meta charset='utf-8' />
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150351954-3"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-150351954-3');
+        </script>
 
-    <title>巴士王</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.css' rel='stylesheet' />
-    <link href="index.css" type="text/css" rel="stylesheet">
 
-    <meta name="description" content="大天龍巴士王v2！大台北地區公車站點及公車路線地圖。新增呼應路線方向即站點數的真．站點可及性功能。">
-    <meta property="og:title" content="巴士王">
-    <meta property="og:description" content="大天龍巴士王v2！大台北地區公車站點及公車路線地圖。新增呼應路線方向即站點數的真．站點可及性功能。">
-    <meta property="og:image" content="https://imgur.com/sRC8T3k" />
-</head>
-<body>
+        <title>巴士王</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.css' rel='stylesheet' />
+        <link href="index.css" type="text/css" rel="stylesheet">
 
-<div id='map'></div>
+        <meta name="description" content="大天龍巴士王v2！大台北地區公車站點及公車路線地圖。新增呼應路線方向即站點數的真．站點可及性功能。">
+        <meta property="og:title" content="巴士王">
+        <meta property="og:description" content="大天龍巴士王v2！大台北地區公車站點及公車路線地圖。新增呼應路線方向即站點數的真．站點可及性功能。">
+        <meta property="og:image" content="https://imgur.com/sRC8T3k" />
+    </head>
+    <body>
 
-<div class='stationInfo'>
-  <div><strong>公車站:</strong> <span id='station'></span></div>
-  <div><strong>路線:</strong> <span id='routes'></span></div>
-</div>
+        <div id='map'></div>
 
-<div class='map-overlay'>
-    <fieldset>
-        <input id='feature-filter' type='text' placeholder='輸入公車路線或站名' />
-        <div id="matchBox">
-          <input type="checkbox" id="exact" name="matchAnswer" value="exact" onclick="OnChangeCheckbox(this)">
-          <label for="exact">exact match</label>
-          <!--
-          <input type="checkbox" id="saveRoute" onclick="OnChangeCheckbox(this)">
-          <label for="exact">save route</label>
-          -->
+        <div class='stationInfo'>
+            <div><strong>公車站:</strong> <span id='station'></span></div>
+            <div><strong>路線:</strong> <span id='routes'></span></div>
         </div>
-        <div id='direction'>
-          <label class='dir_style'>Direction:</label>
-          <input type="radio" class="direction" name="direction" id='dir0' value="dir0" onclick="OnChangeRadioBox(this)">
-          <label class='dir_style' for="direction0">To</label>
-          <input type="radio" class="direction" name="direction" id='dir1' value="dir1" onclick="OnChangeRadioBox(this)">
-          <label class='dir_style' for="direction1">Back</label>
-          <input type="radio" class="direction" name="direction" id='dir2' value="dir2" onclick="OnChangeRadioBox(this)" checked>
-          <label class='dir_style' for="direction2">Both</label>
+
+        <div class='map-overlay'>
+            <fieldset>
+                <input id='feature-filter' type='text' placeholder='輸入公車路線或站名' />
+                <div id="matchBox">
+                    <input type="checkbox" id="exact" name="matchAnswer" value="exact" onclick="OnChangeCheckbox(this)">
+                    <label for="exact">exact match</label>
+                    <!--
+<input type="checkbox" id="saveRoute" onclick="OnChangeCheckbox(this)">
+<label for="exact">save route</label>
+-->
+                </div>
+                <div id='direction'>
+                    <label class='dir_style'>Direction:</label>
+                    <input type="radio" class="direction" name="direction" id='dir0' value="dir0" onclick="OnChangeRadioBox(this)">
+                    <label class='dir_style' for="direction0">To</label>
+                    <input type="radio" class="direction" name="direction" id='dir1' value="dir1" onclick="OnChangeRadioBox(this)">
+                    <label class='dir_style' for="direction1">Back</label>
+                    <input type="radio" class="direction" name="direction" id='dir2' value="dir2" onclick="OnChangeRadioBox(this)" checked>
+                    <label class='dir_style' for="direction2">Both</label>
+                </div>
+                <div id="isochrone">
+                    <div class="isoTrigger">
+                        <input type="checkbox" id="isoBox" onclick="OnChangeIsoBox(this)" >
+                        <label for="isoBox" id='isoLabel'>行駛 <span id="time"></span> 站之可及範圍</label>
+                    </div>
+                    <input type="range" min="1" max="60" value='5' id="isoRange">      
+                </div>      
+            </fieldset>
+            <div id='feature-listing' class='listing'></div>
         </div>
-        <div id="isochrone">
-          <div class="isoTrigger">
-            <input type="checkbox" id="isoBox" onclick="OnChangeIsoBox(this)" >
-            <label for="isoBox" id='isoLabel'>行駛 <span id="time"></span> 站之可及範圍</label>
-          </div>
-          <input type="range" min="1" max="60" value='5' id="isoRange">      
-        </div>      
-    </fieldset>
-    <div id='feature-listing' class='listing'></div>
-</div>
 
-<script src="./index3.js"></script>
+        <script src="./index3.js"></script>
 
-</body>
+    </body>
 </html>
