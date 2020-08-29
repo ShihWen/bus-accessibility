@@ -925,8 +925,8 @@ function OnChangeCheckbox (checkbox) {
         document.getElementById("isoBox").checked = false;
         iso_slider.disabled = true;
         iso_status = false;
-        iso_slider.value = 30; //set slider to default time
-        output.innerHTML = "30"; //set label to default label
+        iso_slider.value = 5; //set slider to default time
+        output.innerHTML = "5"; //set label to default label
 
         //value = '';
         //filterEl.value = '';
