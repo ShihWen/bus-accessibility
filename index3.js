@@ -22,8 +22,8 @@ map.addControl(new mapboxgl.GeolocateControl({
 const source_layer = 'stationWithNum_v0715';
 const source_url = "mapbox://" + "shihwenwutw.75dnta76"
 //Route layer
-const source_layer_2 = 'shape_all';
-const source_url_2 = "mapbox://" + 'shihwenwutwbeta.4eypgwq2' //'shihwenwutw.8sy1nqh1' //'shihwenwutw.9qewrzda'
+const source_layer_2 = 'shape_all_v2';
+const source_url_2 = "mapbox://" + 'shihwenwutwbeta.8ffbivtx' //'shihwenwutw.8sy1nqh1' //'shihwenwutw.9qewrzda'
 
 
 
